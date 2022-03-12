@@ -18,28 +18,6 @@ np.random.shuffle(data3)
 data_list = [(2, data1), (3, data2), (2, data3)]
 
 for idx_data, (k, data) in enumerate(data_list):
-    train_data, test_data = train_test_split(data)
-
-    print(f"dataset {idx_data}")
-    for k_candidate in range(1, 6):
-        (
-            gparams_result,
-            membership,
-            initial_gparams_result,
-            log_likelihood_list,
-            initial_membership_result,
-        ) = gaussian_mixture(
-            train_data,
-            k_candidate,
-        )
-
-        train_log_likelihood = log_likelihood_list[-1]
-        test_log_likelihood = compute_log_likelihood(test_data, gparams_result)
-        print(f"train log likelihood = {train_log_likelihood}")
-        print(f"test log likelihood = {test_log_likelihood}")
-
-
-for idx_data, (k, data) in enumerate(data_list):
     means_result, squared_error_result, assignments_result = kmean(data, k)
 
     # Problem (a)
@@ -102,3 +80,26 @@ for idx_data, (k, data) in enumerate(data_list):
 
         print(f"log_likelihood: {log_likelihood}")
         print(f"BIC score: {bic_score}")
+
+
+for idx_data, (k, data) in enumerate(data_list):
+    train_data, test_data = train_test_split(data)
+
+    print(f"dataset {idx_data}")
+    for k_candidate in range(1, 6):
+        (
+            gparams_result,
+            membership,
+            initial_gparams_result,
+            log_likelihood_list,
+            initial_membership_result,
+        ) = gaussian_mixture(
+            train_data,
+            k_candidate,
+        )
+
+        train_log_likelihood = log_likelihood_list[-1]
+        test_log_likelihood = compute_log_likelihood(test_data, gparams_result)
+        print(f"train log likelihood = {train_log_likelihood}")
+        print(f"test log likelihood = {test_log_likelihood}")
+
