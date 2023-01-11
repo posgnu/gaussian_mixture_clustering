@@ -4,6 +4,6 @@ This repository implements the Gaussian Mixture Clustering that initializes the 
 Clustering pixels with K=2, 3, 4, 5, 6, 7, 8, 9, 10
 ![](./result/combine_images.png)
 
-## Etc
+## Original image
 
 ![](./data/clown.jpg)
